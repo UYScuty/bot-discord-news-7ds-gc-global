@@ -5,10 +5,11 @@ var iterateur = 1;
 const client = new Discord.Client();
 var sleep = require('sleep');
 var he = require('he');
+const token = process.env.DISCORD_API_TOKEN;
 
 //Toutes les actions à faire quand le bot se connecte
 
-async function depart (message, recent, iterateur) { 
+async function depart (message, recent, iterateur, client) { 
     while (iterateur > 0) 
     {
         var ts = Math.round((new Date()).getTime());
@@ -37,7 +38,7 @@ async function depart (message, recent, iterateur) {
     }
     return(0);
 }
-async function message_chall (recent, message, img, title, description) {
+async function message_chall (recent, message, img, title, description, client) {
     const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle(title)
@@ -55,8 +56,8 @@ client.on('message', message => {
     console.log(message.content);
     if (message.content === '-news') {
             message.channel.send('MISE EN MARCHE DU BOT')
-            depart(message, recent, iterateur);
+            depart(message, recent, iterateur, client);
         }
 });
 
-client.login("NzE1MjMyODYzOTMwNDE3MjQz.XtKAbQ.Abu9hBtH26oN3CPRvQEhzSFyElw");
+client.login(token);
