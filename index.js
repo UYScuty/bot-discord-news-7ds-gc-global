@@ -59,5 +59,4 @@ client.on('message', message => {
             depart(message, recent, iterateur, client);
         }
 });
-
 client.login(token);
