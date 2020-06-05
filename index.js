@@ -6,7 +6,7 @@ const fs = require('fs');
 var recent = "";
 var iterateur = 1;
 const prefix = '&';
-//const token = process.env.DISCORD_API_TOKEN;
+const token = process.env.DISCORD_API_TOKEN;
 
 //Toutes les actions à faire quand le bot se connecte
 async function help(message) {
@@ -191,4 +191,4 @@ async function depart (recent, iterateur, client) { //cette fonction verifie tou
 return(0);
 }
 
-client.login("NzE1MjMyODYzOTMwNDE3MjQz.XtaAEA.XTa4iymWDn7du2P7O70hrZ1o7X0");
+client.login(token);
